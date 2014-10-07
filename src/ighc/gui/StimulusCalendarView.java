@@ -1,12 +1,14 @@
 package ighc.gui;
 
 import ighc.data.Property;
+import ighc.data.Stimulus;
 import ighc.data.StimulusCalendar;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 /**
  * Created by NorbergPC on 07-10-2014.
@@ -14,7 +16,7 @@ import java.awt.event.ActionListener;
 public class StimulusCalendarView extends JPanel {
     private StimulusCalendar calendar;
 
-    public StimulusCalendarView(StimulusCalendar calendar) {
+    public StimulusCalendarView(final StimulusCalendar calendar) {
         this.calendar = calendar;
         mainTable.setModel(this.calendar);
         mainTable.setDefaultRenderer(Property.class, new PropertyCellRenderer());
@@ -26,7 +28,14 @@ public class StimulusCalendarView extends JPanel {
         addNewEventButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Property temp = new Property(4, 5, 2, 1);
+                Property humi = new Property(4, 5, 2, 1);
+                Property ligh = new Property(4, 5, 2, 1);
+                Property co2 = new Property(4, 5, 2, 1);
+                Stimulus sti = new Stimulus(temp, humi, ligh, co2);
+                sti.setEnabled(false);
+                Date date = new Date();
+                calendar.put(date, sti);
             }
         });
     }

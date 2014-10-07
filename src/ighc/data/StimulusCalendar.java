@@ -1,6 +1,7 @@
 package ighc.data;
 
 import javax.swing.table.AbstractTableModel;
+import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,7 +27,14 @@ public class StimulusCalendar extends AbstractTableModel {
 
     public void put(Date key, Stimulus value) {
         calendar.put(key, value);
-        fireTableDataChanged();
+
+        Object[] calArray = calendar.keySet().toArray();
+        for(int i = 0; i < calendar.size(); i++) {
+            if(calArray[i].equals(key)) {
+                fireTableRowsInserted(i,i);
+                return;
+            }
+        }
     }
 
     @Override
