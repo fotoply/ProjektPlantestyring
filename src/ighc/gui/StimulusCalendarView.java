@@ -5,6 +5,8 @@ import ighc.data.StimulusCalendar;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by NorbergPC on 07-10-2014.
@@ -15,11 +17,19 @@ public class StimulusCalendarView extends JPanel {
     public StimulusCalendarView(StimulusCalendar calendar) {
         this.calendar = calendar;
         mainTable.setModel(this.calendar);
-        mainTable.setDefaultRenderer(Property.class,new PropertyCellRenderer());
+        mainTable.setDefaultRenderer(Property.class, new PropertyCellRenderer());
 
         this.setLayout(new BorderLayout());
         this.add(mainJPanel, BorderLayout.CENTER);
         this.revalidate();
+
+        addNewEventButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EventDialog dialog = new EventDialog();
+                dialog.setVisible(true);
+            }
+        });
     }
 
     private JTable mainTable;
@@ -54,6 +64,7 @@ public class StimulusCalendarView extends JPanel {
         mainJPanel.add(scrollPane1, gbc);
         mainTable = new JTable();
         mainTable.setBackground(new Color(-1));
+        mainTable.setFillsViewportHeight(true);
         scrollPane1.setViewportView(mainTable);
         addNewEventButton = new JButton();
         addNewEventButton.setText("Add new event");

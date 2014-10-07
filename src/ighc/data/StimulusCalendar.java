@@ -30,6 +30,17 @@ public class StimulusCalendar extends AbstractTableModel {
     }
 
     @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        switch(columnIndex) {
+            case 0: // Er ved dato
+                return Date.class;
+
+            default:
+                return Property.class;
+        }
+    }
+
+    @Override
     public int getRowCount() {
         return calendar.size();
     }

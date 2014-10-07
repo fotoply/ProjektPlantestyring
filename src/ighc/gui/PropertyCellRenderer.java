@@ -19,8 +19,12 @@ public class PropertyCellRenderer implements TableCellRenderer {
         panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
         panel.add(new JLabel(String.format("High: %.1f",property.getHigh())));
         panel.add(new JLabel(String.format("Low: %.1f",property.getLow())));
-        panel.add(new JLabel(String.format("Freq: %f",property.getFrequency())));
-        panel.add(new JLabel(String.format("Duty: %f",property.getDutycycle())));
+        panel.add(new JLabel(String.format("Freq: %.0f",property.getFrequency())));
+        panel.add(new JLabel(String.format("Duty: %.0f",property.getDutycycle())));
+
+        table.setRowHeight(row,70);
+        table.getColumnModel().getColumn(column).setMinWidth(40);
+        table.getColumnModel().getColumn(column).setMaxWidth(Integer.MAX_VALUE);
         return panel;
     }
 }
