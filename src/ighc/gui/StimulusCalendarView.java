@@ -1,5 +1,6 @@
 package ighc.gui;
 
+import ighc.data.Property;
 import ighc.data.StimulusCalendar;
 
 import javax.swing.*;
@@ -14,6 +15,7 @@ public class StimulusCalendarView extends JPanel {
     public StimulusCalendarView(StimulusCalendar calendar) {
         this.calendar = calendar;
         mainTable.setModel(this.calendar);
+        mainTable.setDefaultRenderer(Property.class,new PropertyCellRenderer());
 
         this.setLayout(new BorderLayout());
         this.add(mainJPanel, BorderLayout.CENTER);

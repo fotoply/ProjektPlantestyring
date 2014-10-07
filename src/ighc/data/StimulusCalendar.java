@@ -11,6 +11,14 @@ import java.util.Map;
 public class StimulusCalendar extends AbstractTableModel {
     LinkedHashMap<Date,Stimulus> calendar;
 
+    public StimulusCalendar() {
+        this(new LinkedHashMap<Date, Stimulus>());
+    }
+
+    public StimulusCalendar(LinkedHashMap<Date, Stimulus> calendar) {
+        this.calendar = calendar;
+    }
+
     public void remove(Object key) {
         calendar.remove(key);
         fireTableDataChanged();
@@ -19,14 +27,6 @@ public class StimulusCalendar extends AbstractTableModel {
     public void put(Date key, Stimulus value) {
         calendar.put(key, value);
         fireTableDataChanged();
-    }
-
-    public StimulusCalendar() {
-        this(new LinkedHashMap<Date, Stimulus>());
-    }
-
-    public StimulusCalendar(LinkedHashMap<Date, Stimulus> calendar) {
-        this.calendar = calendar;
     }
 
     @Override
