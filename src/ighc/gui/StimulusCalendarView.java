@@ -26,8 +26,7 @@ public class StimulusCalendarView extends JPanel {
         addNewEventButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EventDialog dialog = new EventDialog();
-                dialog.setVisible(true);
+
             }
         });
     }
