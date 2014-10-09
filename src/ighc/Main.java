@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         StimulusCalendar cal = new StimulusCalendar();
 
-        // TESTKODE MED TILFÃ†LDIG DATA!!
+        // TESTKODE MED TILFÆLDIG DATA!!
         Property temp = new Property(4,5,2,1);
         Property humi = new Property(4,5,2,1);
         Property ligh = new Property(4,5,2,1);
