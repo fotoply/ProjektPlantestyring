@@ -1,13 +1,3 @@
-/**
- * File:		Configuration.java
- * Package:		com.innobox.innotrace.servermodule
- * Project:		ServerModule
- * Created:		12/04/2014 15.04.16
- * Author:		jonathanfrank
- * 
- * Copyright 2014 InnoBox / Jonathan Frank. All rights reserved.
- * For further information, please read LICENSE.md
- */
 package ighc.util;
 
 /**
@@ -15,9 +5,9 @@ package ighc.util;
  * 
  */
 public class Configuration {
-	private String dbURL = "jdbc:mysql://localhost/innotrace";
+	private String dbURL = "jdbc:mysql://localhost/ighc_data";
 	private String dbUsername = "root";
-	private String dbPassword;
+	private String dbPassword = "key4u2use";
 	
 	/**
 	 * 
