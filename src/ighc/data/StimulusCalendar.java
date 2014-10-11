@@ -20,12 +20,12 @@ public class StimulusCalendar extends AbstractTableModel {
         this.calendar = calendar;
     }
 
-    public void remove(Object key) {
+    public void remove(Object key) {    //TODO: Implement database calls when removing values
         calendar.remove(key);
         fireTableDataChanged();
     }
 
-    public void put(Date key, Stimulus value) {
+    public void put(Date key, Stimulus value) {     //TODO: Implement database calls when putting values
         calendar.put(key, value);
 
         Object[] calArray = calendar.keySet().toArray();
@@ -39,11 +39,11 @@ public class StimulusCalendar extends AbstractTableModel {
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        switch(columnIndex) {
-            case 0: // Er ved dato
+        switch(columnIndex) {       //TODO: Maybe use an if-then-else instead of switch?
+            case 0:     // Is a date
                 return Date.class;
 
-            default:
+            default:    // Otherwise it is a property
                 return Property.class;
         }
     }
@@ -61,22 +61,22 @@ public class StimulusCalendar extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         switch(column) {
-            case 0: // Er ved dato
+            case 0: // Column is date
                 return "Date";
 
-            case 1: // Er ved jordfugtighed
+            case 1: // Column is humidity
                  return "Humidity";
 
-            case 2: // Er ved temperatur
+            case 2: // Column is temperature
                 return "Temperature";
 
-            case 3: // Er ved lyststyrke
+            case 3: // Column is light intensity
                 return "Light";
 
-            case 4: // Er ved CO2
+            case 4: // Column is CO2
                 return "CO2";
 
-            default: // Fejl
+            default: // Error
                 throw new IllegalArgumentException("Invalid column selected!");
         }
     }
@@ -85,22 +85,22 @@ public class StimulusCalendar extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         Map.Entry<Date,Stimulus> entry = ((Map.Entry<Date,Stimulus>)calendar.entrySet().toArray()[rowIndex]);
         switch(columnIndex) {
-            case 0: // Er ved dato
+            case 0: // Column is date
                 return entry.getKey();
 
-            case 1: // Er ved jordfugtighed
+            case 1: // Column is humidity
                 return entry.getValue().getHumidity();
 
-            case 2: // Er ved temperatur
+            case 2: // Column is temperature
                 return entry.getValue().getTemperature();
 
-            case 3: // Er ved lysstyrke
+            case 3: // Column is light intensity
                 return entry.getValue().getLight();
 
-            case 4: // Er ved CO2
+            case 4: // Column is CO2
                 return entry.getValue().getCo2();
 
-            default: // Fejl
+            default: // Error
                 throw new IllegalArgumentException("Invalid column selected!");
         }
     }

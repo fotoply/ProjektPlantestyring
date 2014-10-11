@@ -1,8 +1,10 @@
 package ighc.gui;
 
 import ighc.data.Property;
+import sun.swing.DefaultLookup;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 

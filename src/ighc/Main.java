@@ -15,12 +15,12 @@ public class Main {
     public static void main(String[] args) {
         StimulusCalendar cal = new StimulusCalendar();
 
-        // TESTKODE MED TILFÆLDIG DATA!!
+        // Testcode with random data!!
         Property temp = new Property(4,5,2,1);
         Property humi = new Property(4,5,2,1);
         Property ligh = new Property(4,5,2,1);
         Property co2 = new Property(4,5,2,1);
-        Stimulus sti = new Stimulus(temp,humi,ligh,co2);
+        Stimulus sti = new Stimulus(temp,humi,ligh,co2);  //TODO: Remove this code and replace it with loading code when database is populated
         Date date = new Date();
         try {
             cal.put(date, sti);
@@ -36,7 +36,7 @@ public class Main {
             cal.put(new Date(), sti);
         } catch (InterruptedException e) {
         }
-        // SLUT PÃ… TESTKODE!!
+        // End of testcode!!
 
         StimulusCalendarView view = new StimulusCalendarView(cal);
         JFrame frame = new JFrame("Stimulus calendar control panel");
