@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import ighc.util.ConnectionPool;
 import ighc.util.DatabaseConnection;
 
+import javax.sql.rowset.CachedRowSet;
+
 public class StimulusCalendarDAO {
 //Delete
 	public void deleteCalendar(int calenderId) throws SQLException {
@@ -17,10 +19,11 @@ public class StimulusCalendarDAO {
 	}
 
 //Load
-    public StimulusCalendar loadCalendar (int calenderId) throws SQLException {     //TODO: Return results instead of null
+    public Stimulus loadCalendar (int calenderId) throws SQLException {     //TODO: Return results instead of null
         DatabaseConnection connection = ConnectionPool.getDatabaseConnection();
-        connection.executeQuery("SELECT FROM stimuluscalendar WHERE id = ?", calenderId);
-        return null;
+        CachedRowSet data = connection.executeQuery("SELECT FROM stimuluscalendar WHERE id = ?", calenderId);
+        Stimulus stimulus = (Stimulus)data.getObject(1);
+        return stimulus;
     }
 
 //Modify
